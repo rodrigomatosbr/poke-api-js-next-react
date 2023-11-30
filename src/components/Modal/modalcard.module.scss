@@ -1,0 +1,146 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+/* modal */
+.modal {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  font-size: 1.76rem;
+  font-weight: 400;
+  line-height: 2.56rem;
+  .overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    .modalBox {
+      position: relative;
+      z-index: 20;
+      margin: 20rem auto;
+      width: 70rem;
+      height: 56rem;
+      display: flex;
+      justify-content: space-between;
+      animation: fadeUp .3s ease;
+      overflow: hidden;
+      .modalBg {
+        z-index: 2;
+        background-image: linear-gradient(170deg, transparent 29.8%, #ffffff 30%);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .imageBg {
+        content: "";
+        z-index: 2;
+        width: 70rem; 
+        height: 56rem; 
+        position: absolute;
+        background: url('../../assets/modal-floral-bg-1.png') no-repeat top left /50rem;
+        opacity: .12;
+      }
+      .close {
+        position: absolute;
+        margin-left: 66rem;
+        margin-top: 2rem;
+        z-index: 305;
+        font-size: 2.4rem;
+        font-weight: 400;
+        color: $color-white-1;
+        width: 4rem;
+        height: 4rem;
+        border-radius: .8rem;
+        transition: transform .3s;
+        &:hover {
+          cursor: pointer;
+          color: $color-grey-2;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeUp {
+  	from {
+  		opacity: 0;
+  		transform: translatey(300px);
+  	}
+  	to {
+  		opacity: 1;
+  		transform: translatey(0px);
+  	}
+  }
+  
+
+//// Responsive ////
+@media (max-width: 768px) {
+  .modal {
+    .overlay {
+      .modalBox {
+        width: 65rem;
+        height: 52rem;
+        .imageArea {
+          margin-top: 2rem;
+        }
+        .imageBg {
+          background: url('../../assets/modal-floral-bg-1.png') no-repeat top left /50rem;
+        }
+        .close {
+          margin-left: 61rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 690px) {
+  .modal {
+    .overlay {
+      .modalBox {
+        width: 50rem;
+        height: 45rem;
+        margin: 15rem auto;
+        .imageArea {
+          margin-top: 2rem;
+        }
+        .imageBg {
+          background: url('../../assets/modal-floral-bg-1.png') no-repeat top left /40rem;
+        }
+        .close {
+          margin-left: 47rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 538px) {
+  .modal {
+    .overlay {
+      .modalBox {
+        width: 33rem;
+        height: 53rem;
+        margin: 9rem auto;
+        .modalBg {
+          background-image: linear-gradient(170deg, transparent 24.8%, #ffffff 25%);
+        }
+        .imageArea {
+          margin-top: 5rem;
+        }
+        .imageBg {
+          background: url('../../assets/modal-floral-bg-1.png') no-repeat top left /30rem;
+        }
+        .close {
+          margin-left: 30rem;
+        }
+      }
+    }
+  }
+}
+
+

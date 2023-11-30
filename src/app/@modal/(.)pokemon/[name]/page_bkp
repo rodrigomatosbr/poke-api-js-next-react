@@ -1,0 +1,165 @@
+'use client'
+import Image from "next/image"
+import { useCallback, useEffect, useRef, useState } from "react"
+import Modal from "@/components/Modal"
+// import styles from '@/components/Modal/modalcard.module.scss'
+import styles from '@/app/@modal/(.)pokemon/[name]/pagemodal.module.scss'
+import { useRouter } from "next/navigation"
+import brokenImg from '../../../../assets/gears.png'
+
+export default function PokemonPageModal ({params}) {
+const [pokemonPage, setPokemonPage] = useState([]);
+
+useEffect(() => { 
+  async function getSearchDetails() {
+    try {
+      const response3 = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}`);
+    const data3 = await response3.json();
+    const { name, id, types, weight, sprites, abilities, base_experience, moves, stats} = data3
+    const cardInfo2 = {
+      name: name,
+      id: id,
+      type1: types[0]?.type.name,
+      type2: types[1]?.type.name,
+      weight: weight,
+      img1: sprites.other.dream_world.front_default,
+      img2: sprites.other.home.front_default,
+      ability1: abilities[0]?.ability.name,
+      ability2: abilities[1]?.ability.name,
+      baseExperience: base_experience,
+      move1: moves[0]?.move.name,
+      move2: moves[1]?.move.name,
+      move3: moves[2]?.move.name,
+      hp: stats[0].base_stat,
+      attack: stats[1].base_stat,
+      defense: stats[2].base_stat,
+      specialAtt: stats[3].base_stat,
+      specialDef: stats[4].base_stat,
+      speed: stats[5].base_stat,
+    }
+    setPokemonPage(cardInfo2)
+    }  catch (error) {
+      setErrorMsg('Não foi possível encontrar a pagina')
+    }
+  }
+  if (params.name !=null) getSearchDetails()
+},[params.name]);
+
+//Pokemon names first letter
+// const capitalizeFirst = str => {
+// return str.toUpperCase();
+// }
+// function capitalizeFirst (string) {
+//   return string.charAt(0).toUpperCase() + string.slice(1);
+// }
+
+//Pokemon id prefix
+const prefixId = id => {
+  return (id < 10) ? `#00${id}` : (id <= 100) ? `#0${id}`: `#${id}`
+}
+
+const router = useRouter()
+const overlay = useRef()
+const close = useRef()
+
+const onDismiss = useCallback(() => {
+router.back()
+}, [router])
+
+const onClose = (e) => {
+ if (e.target === overlay.current || close.current) onDismiss()
+  // console.log('overlay click')
+}
+
+return (
+  <>
+
+
+ <div className={styles.modal}>
+        <div className={styles.overlay} ref={overlay} onClick={onClose}>
+          <div className={styles.modalBox}  
+          /* evitar fechar ao clicar no box */
+            onClick={(e) => {
+              e.stopPropagation()
+            }}
+            >
+              {/* <div className={styles[`${params.type1}`]}></div> */}
+              <div className={styles.modalBg}></div>
+              <div className={styles.imageBg}></div>
+               <div className={styles[`${pokemonPage.type1}`]}></div>
+              <div className={styles.container}>
+                <div className={styles.leftArea}>
+                  <h2>{pokemonPage.name}</h2>
+                  <p>{prefixId(pokemonPage.id)}</p>
+                  <div className={styles.imageArea}>
+                    <Image
+                    src={pokemonPage.img2 ? pokemonPage.img2 : brokenImg} alt='pokemon image 2'
+                    width={400}
+                    height={400}
+                    />
+                  </div>
+                  <div className={styles.imageReflection}>
+                    <Image
+                    src={pokemonPage.img2 ? pokemonPage.img2 : brokenImg} alt='pokemon image 2 reflection'
+                    width={400}
+                    height={400}
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.description}>
+                  <div className={styles.info}>
+                    <p>Weight: {pokemonPage.weight} kg</p>
+                    <p>Base experience: {pokemonPage.baseExperience}</p>
+                  </div>
+
+                  <div className={styles.types}>
+
+                    <div className={styles.type1}>
+                      <p>{pokemonPage.type1}</p>
+                      <div className={styles.iconType1}>
+                        <div className={styles[`${pokemonPage.type1}`]}></div>
+                      </div>
+                    </div>
+                    
+                    <div className={styles.type2}>
+                      <p>{pokemonPage.type2}</p>
+                      <div className={styles.iconType2}>
+                        <div className={styles[`${pokemonPage.type2}`]}></div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+                <div className={styles.allStats}>
+                    <div className={styles.abilities}>
+                      <h4>Abilities:</h4>
+                      <p>{pokemonPage.ability1}</p>
+                      <p>{pokemonPage.ability2}</p>
+                    </div>
+                    <div className={styles.moves}>
+                      <h4>Moves:</h4>
+                      <p>{pokemonPage.move1}</p>
+                      <p>{pokemonPage.move2}</p>
+                      <p>{pokemonPage.move3}</p>
+                    </div>
+                    <div className={styles.stats}>
+                      <h4>Stats:</h4>
+                      <p>HP: {pokemonPage.hp}</p>
+                      <p>Attack: {pokemonPage.attack}</p>
+                      <p>Defense: {pokemonPage.defense}</p>
+                      <p>Special Attack: {pokemonPage.specialAtt}</p>
+                      <p>Special Defense: {pokemonPage.specialDef}</p>
+                      <p>Speed: {pokemonPage.speed}</p>
+                    </div>
+                </div>
+              </div>
+            {/* <Link href={'/'} className={styles.close} onClick={close}>X</Link> */}
+            <div className={styles.close} ref={close} onClick={onClose}>X</div>
+          </div>
+        </div>
+    </div>
+  </>
+)
+}
