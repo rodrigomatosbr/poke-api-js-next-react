@@ -1,3 +1,8 @@
+# PokePalette
+
+![PokePalette Example Gif](src/assets/pokeApi-demo.gif)
+
+
 Este é um projeto criado com base em Next.js, utilizando hooks do React.js e estilizado com o auxílio de SASS.
 
 ## Rodar ##
