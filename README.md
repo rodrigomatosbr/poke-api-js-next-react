@@ -1,4 +1,4 @@
-# RM PokeApi![logo](public/favicon.png)
+# RM PokeApi ![logo](public/favicon.png)
 ![Example Gif](src/assets/pokeApi-demo.gif)
 
 ## 🚀Tecnologias
