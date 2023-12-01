@@ -1,6 +1,8 @@
 # RM PokeApi ![logo](public/favicon.png)
 ![Example Gif](src/assets/pokeApi-demo.gif)
 
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXZwZTE5Y2FzY2Zyc2Y5YXlwMXA0a2h5dGo4dGVpcm95NGNyd2hlOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2ED7Tiaw9Gq6r2j0ur/giphy.gif" width="1280">
+
 ## 🚀Tecnologias
 - HTML
 - CSS
