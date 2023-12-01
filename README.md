@@ -23,6 +23,6 @@ tudo com base em consumo da RESTApi pública https://pokeapi.co/.
 
 Com o uso das Rotas Dinâmicas e Rotas Paralelas do Next.js, é possível compartilhar a url de cada card
 onde será redirecionado para uma página única.
---
+
 
 
