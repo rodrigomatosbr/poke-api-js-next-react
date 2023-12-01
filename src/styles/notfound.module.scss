@@ -1,0 +1,310 @@
+@import '../styles/variables';
+
+.main {
+  .container {
+    width: 100%; 
+    max-width: 120rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    .leftArea {
+      margin-top: 20rem;
+      h1 {
+        font-size: 6rem;
+        font-weight: 400;
+        line-height: 8rem;
+      }
+      h2 {
+        font-size: 4rem;
+        font-weight: 400;
+        line-height: 8rem;
+      }
+      h3 {
+        margin-top: 2rem;
+        font-size: 3rem;
+        font-weight: 400;
+        line-height: 4rem;
+      }
+      p {
+        font-size: 2.5rem;
+        font-weight: 400;
+        line-height: 6rem;
+      }
+      .btnHome {
+        background-color: $color-red-2;
+        border: 0 solid #E5E7EB;
+        box-sizing: border-box;
+        color: $color-white-1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.92rem;
+        font-weight: 700;
+        position: relative;
+        text-align: center;
+        text-decoration: none #000000 solid;
+        text-decoration-thickness: auto;
+        width: 22rem;
+        height: 4rem;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        transition: filter .3s;
+        &:hover {
+          background-color: $color-red-1;
+          outline: 0;
+        }
+        &:hover:after {
+          bottom: .2rem;
+          left: .2rem;
+        }
+      }
+    }
+    img {
+      margin-top: 20rem;
+      margin-left: 5rem;
+    }
+  }
+}
+
+//// Responsive ////
+@media (max-width: 2000px) {
+ .main {
+  .container {
+    .leftArea {
+      h1 {
+        font-size: 5rem;
+        font-weight: 400;
+        line-height: 7rem;
+      }
+      h2 {
+        font-size: 3rem;
+        font-weight: 400;
+        line-height: 8rem;
+      }
+      h3 {
+        margin-top: 1rem;
+        font-size: 3rem;
+        font-weight: 400;
+        line-height: 4rem;
+      }
+      p {
+        font-size: 2rem;
+        font-weight: 400;
+        line-height: 6rem;
+      }
+    }
+    img {
+      width: 33rem;
+      height: 37rem;
+    }
+  }
+ }
+}
+
+@media (max-width: 1020px) {
+  .main {
+   .container {
+     .leftArea {
+       h1 {
+         font-size: 4rem;
+         font-weight: 400;
+         line-height: 5rem;
+       }
+       h2 {
+         font-size: 2rem;
+         font-weight: 400;
+         line-height: 6rem;
+       }
+       h3 {
+         margin-top: .8rem;
+         font-size: 3rem;
+         font-weight: 400;
+         line-height: 4rem;
+       }
+       p {
+         font-size: 1.5rem;
+         font-weight: 400;
+         line-height: 6rem;
+       }
+     }
+     img {
+      width: 28rem;
+      height: 31rem;
+    }
+   }
+  }
+ }
+
+ 
+@media (max-width: 810px) {
+  .main {
+   .container {
+     .leftArea {
+       h1 {
+         font-size: 3rem;
+         font-weight: 400;
+         line-height: 4rem;
+       }
+       h2 {
+         font-size: 2rem;
+         font-weight: 400;
+         line-height: 4rem;
+       }
+       h3 {
+         margin-top: 1rem;
+         font-size: 1.8rem;
+         font-weight: 400;
+         line-height: 2rem;
+       }
+       p {
+         font-size: 1.2rem;
+         font-weight: 400;
+         line-height: 4rem;
+       }
+       .btnHome {
+        font-size: 1.5rem;
+        font-weight: 600;
+        width: 14rem;
+        height: 3rem;
+       }
+     }
+     img {
+      width: 20rem;
+      height: 23rem;
+    }
+   }
+  }
+ }
+
+
+ @media (max-width: 660px) {
+  .main {
+    .container {
+      .leftArea {
+        h1 {
+          font-size: 2.8rem;
+          font-weight: 400;
+          line-height: 4rem;
+        }
+        h2 {
+          font-size: 2rem;
+          font-weight: 400;
+          line-height: 4rem;
+        }
+        h3 {
+          
+          font-size: 1.5rem;
+          font-weight: 400;
+          line-height: 2rem;
+          margin-top: 1rem;
+        }
+        p {
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 2rem;
+          margin-top: 1rem;
+        }
+        .btnHome {
+          font-size: 1rem;
+          font-weight: 600;
+          width: 8rem;
+          height: 2rem;
+         }
+  
+      }
+      img {
+        margin-top: 15rem;
+        margin-left: 1rem;
+        width: 14rem;
+        height: 16rem;
+      }
+    }
+  }
+ }
+
+ @media (max-width: 510px) {
+  .main {
+    .container {
+      .leftArea {
+        h1 {
+          font-size: 2rem;
+          font-weight: 400;
+          line-height: 2rem;
+        }
+        h2 {
+          font-size: 1.5rem;
+          font-weight: 400;
+          line-height: 2rem;
+        }
+        h3 {
+          font-size: 1.2rem;
+          font-weight: 400;
+          line-height: 1.5rem;
+          margin-top: 1rem;
+        }
+        p {
+          font-size: .8rem;
+          font-weight: 400;
+          line-height: 2rem;
+        }
+        .btnHome {
+          font-size: .7rem;
+          font-weight: 600;
+          width: 8rem;
+          height: 2rem;
+         }      }
+      img {
+        margin-top: 15rem;
+        width: 12rem;
+        height: 15rem;
+      }
+    }
+  }
+
+ }
+
+ @media (max-width: 400px) {
+  .main {
+    .container {
+      .leftArea {
+        h1 {
+          font-size: 2rem;
+          font-weight: 400;
+          line-height: 2rem;
+        }
+        h2 {
+          font-size: 1.5rem;
+          font-weight: 400;
+          line-height: 2rem;
+        }
+        h3 {
+          font-size: 1.2rem;
+          font-weight: 400;
+          line-height: 1.5rem;
+          margin-top: 1rem;
+        }
+        p {
+          font-size: .8rem;
+          font-weight: 400;
+          line-height: 2rem;
+        }
+        .btnHome {
+          font-size: .7rem;
+          font-weight: 600;
+          width: 8rem;
+          height: 2rem;
+         }
+      }
+      img {
+        margin-top: 15rem;
+        width: 10rem;
+        height: 13rem;
+      }
+    }
+  }
+ }
